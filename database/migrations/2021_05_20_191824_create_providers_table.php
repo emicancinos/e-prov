@@ -20,8 +20,10 @@ class CreateProvidersTable extends Migration
             $table->string('business_name');
             $table->timestamps();
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('city_id');
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
