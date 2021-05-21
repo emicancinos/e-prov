@@ -1,6 +1,12 @@
 version: "3.7"
 
 services: 
+    nginx-proxy:
+        image: nginx:alpine
+        ports:
+        - "80:80"
+        volumes:
+          - ./:/var/www/html
     
     e-prov:
         image: php:7.3.26-fpm-alpine
