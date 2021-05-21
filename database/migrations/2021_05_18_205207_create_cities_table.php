@@ -15,7 +15,15 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('location');
+            $table-> enum('location', [
+             'CABA',
+             'GBA ZONA NORTE',
+             'GBA ZONA SUR',
+             'GBA ZONA ESTE',
+             'GBA ZONA OESTE',
+             'LA PLATA',
+             'ZARATE-CAMPANA'
+             ]);
             $table->timestamps();
         });
     }
