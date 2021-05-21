@@ -18,12 +18,10 @@ Route::get('/', function () {
 });
 
 
-Route::post('register', 'UserController@register');
-Route::post('login', 'UserController@authenticate');
+Route::post('/register', 'UserController@register');
+Route::post('/login', 'UserController@authenticate');
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     /*AÑADE AQUI LAS RUTAS QUE QUIERAS PROTEGER CON JWT*/
 });
-Route::post('/user', 'UserController@index');
-Route::post('user', 'UserController@insert');
-Route::delete('user/{id}', 'UserController@delete');
+
