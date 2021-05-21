@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::post('/user', 'UserController@index');
 Route::post('user', 'UserController@insert');
 Route::delete('user/{id}', 'UserController@delete');
+Route::middleware(['cors'])->group(function () {
+    Route::post('/hogehoge', 'Controller@hogehoge');
+});
