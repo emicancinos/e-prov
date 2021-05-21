@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/user', 'UserController@index');
+Route::post('user', 'UserController@insert');
+Route::delete('user/{id}', 'UserController@delete');
