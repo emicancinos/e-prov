@@ -15,7 +15,7 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            $table-> enum('location', ['CABA',
+            $table-> enum('location', [
              'CABA',
              'GBA ZONA NORTE',
              'GBA ZONA SUR',
