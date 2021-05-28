@@ -15,7 +15,8 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-            $cities = [
+        
+        DB::table('cities')->insert([
             ['id' => 1,'location' => 'GBA ZONA NORTE'],
             ['id' => 2,'location' => 'GBA ZONA ESTE'],
             ['id' => 3,'location' => 'GBA ZONA OESTE'],
@@ -23,10 +24,6 @@ class CitySeeder extends Seeder
             ['id' => 5,'location' => 'CABA'],
             ['id' => 6,'location' => 'LA PLATA'],
             ['id' => 7,'location' => 'ZARATE-CAMPANA']
-        ];
-
-        foreach($cities as $city) {
-            city::create($city);
-        }
+        ]);
     }
 }
