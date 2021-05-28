@@ -24,10 +24,6 @@ class CreateUsersTable extends Migration
                 ]);
             $table->rememberToken();
             $table->timestamps();
-            $table->string('adress');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zip_code');
         });
     }
 
