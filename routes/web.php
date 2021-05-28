@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "ando al fin";
+    return "Welcome to e-prov";
+});
+
+Route::group([
+    'prefix' => 'provider'
+], function () {
+    Route::post('create', 'ProviderController@store');
 });
 
 Route::group([

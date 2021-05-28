@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\provider;
 use Illuminate\Http\Request;
 
@@ -35,7 +34,15 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cuit_number' => 'required|string|min:11',
+            'enrollment_number' => 'required|max:255',
+            'business_name'=> 'required|string|max:255',  
+        ]);
+  
+        $provider = provider::create($request->all());
+   
+        return $provider;
     }
 
     /**
