@@ -22,13 +22,5 @@ class CreateOrderProductTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExist('order_product');
-    }
+   
 }
