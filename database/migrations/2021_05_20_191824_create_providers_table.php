@@ -15,15 +15,15 @@ class CreateProvidersTable extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cuit_number');
+            $table->bigInteger('cuit_number');
             $table->integer('enrollment_number');
             $table->string('business_name');
-            $table->timestamps();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('city_id');
-
+            
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->timestamps();
         });
     }
 
