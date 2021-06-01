@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
             ['id' => 1,'name' => 'GASISTA'],
             ['id' => 2,'name' => 'PLOMERO'],
             ['id' => 3,'name' => 'ELECTRICISTA'],
-            ['id' => 4,'name' => 'CERRAJERO'],
+            ['id' => 4,'name' => 'PINTOR'],
             ['id' => 5,'name' => 'TECNICO DE AIRE ACONDICIONADO'],
         ]);
     }
