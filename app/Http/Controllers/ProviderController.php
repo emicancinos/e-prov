@@ -35,6 +35,7 @@ class ProviderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'email'=>'required|string|email',
             'cuit_number' => 'required|string|min:11',
             'enrollment_number' => 'required|max:255',
             'business_name'=> 'required|string|max:255',  
