@@ -1,10 +1,13 @@
 <?php
 
-use App\client;
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use App\client;
+
 
 class ClientSeeder extends Seeder
-{
+{ 
     /**
      * Run the database seeds.
      *
@@ -15,4 +18,5 @@ class ClientSeeder extends Seeder
         $count = 20;
         factory(client::class, $count)->create();
     }
+    
 }
