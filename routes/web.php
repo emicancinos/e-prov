@@ -17,10 +17,17 @@ Route::get('/', function () {
     return "Welcome to e-prov";
 });
 
+
 Route::group([
     'prefix' => 'provider'
 ], function () {
     Route::post('create', 'ProviderController@store');
+});
+
+Route::group([
+    'prefix' => 'client'
+], function(){
+    Route::post('create', 'ClientController@store');
 });
 
 Route::group([
@@ -38,15 +45,5 @@ Route::group([
 });
 
 
-
-// Route::middleware(['cors'])->group(function () {
-//     Route::post('/hogehoge', 'Controller@hogehoge');
-// });
-
-// Route::group(['middleware' => ['jwt.verify']], function() {
-//     /*AÑADE AQUI LAS RUTAS QUE QUIERAS PROTEGER CON JWT*/
-//     Route::post('/register', 'UserController@register');
-//     Route::post('/login', 'UserController@authenticate');
-// });
 
 

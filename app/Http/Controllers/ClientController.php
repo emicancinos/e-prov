@@ -35,7 +35,16 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone_number'=> 'required|string|max:255',
+            'email' => 'required|string|min:4',
+        ]);
+  
+        $client = client::create($request->all());
+   
+        return $client;
     }
 
     /**
