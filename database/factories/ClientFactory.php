@@ -10,6 +10,7 @@ $factory->define(client::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
         'phone_number' => $faker->numerify('########'),
         'email' => $faker->email,
         'user_id' => User::all()->random()->id
