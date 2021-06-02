@@ -11,6 +11,7 @@ $factory->define(client::class, function (Faker $faker) {
         'name' => $faker->name,
         'last_name' => $faker->lastName,
         'phone_number' => $faker->numerify('########'),
+        'email' => $faker->email,
         'user_id' => User::all()->random()->id
     ];
 });
