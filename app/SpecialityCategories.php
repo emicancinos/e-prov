@@ -4,16 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\speciality;
 
-class provider extends Model
+class SpecialityCategories extends Model
 {
-
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'providers';
+    protected $table = 'specialities_category';
 
     /**
      * The attributes that are mass assignable.
@@ -21,21 +21,18 @@ class provider extends Model
      * @var array
      */
     protected $fillable = [
-        'email',
-        'cuit_number',
-        'enrollment_number',
-        'business_name',
-        'user_id',
-        'city_id'
+        'speciality_id',
+        'category_id'
     ];
 
-    /**
-     * Relation HasMany with Category Model.
-     *
-     * @return HasMany
-     */
+    
+    public function speciality()
+    {
+        return $this->belongsTo(Period::class, 'period_id');
+    }
+    
     public function category()
     {
-        return $this->hasMany(Category::class );
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
