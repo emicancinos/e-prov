@@ -17,6 +17,12 @@ Route::get('/', function () {
     return "Welcome to e-prov";
 });
 
+Route::group([
+    'prefix' => 'providersCategories'
+], function () {
+    Route::post('create', 'ProvidersCategoriesController@store');
+});
+
 
 Route::group([
     'prefix' => 'provider'

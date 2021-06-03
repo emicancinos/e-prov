@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProvidersCategories;
+use Error;
 use Illuminate\Http\Request;
 
 class ProvidersCategoriesController extends Controller
@@ -35,7 +36,14 @@ class ProvidersCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'provider_id'=>'required',
+            'category_id' => 'required',
+        ]);
+  
+        $providersCategories = ProvidersCategories::create($request->all());
+   
+        return $providersCategories;
     }
 
     /**
