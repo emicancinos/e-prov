@@ -7,6 +7,7 @@ use Database\Seeders\SpecialitySeeder;
 use App\provider;
 use App\User;
 use App\client;
+use App\ProvidersCategories;
 
 
 
@@ -27,7 +28,7 @@ class DatabaseSeeder extends Seeder
             factory(User::class, 50)->create();
             factory(client::class, 50)->create();
             factory(provider::class, 100)->create();
-            
+            factory(ProvidersCategories::class, 150)->create();
 
         
     }
