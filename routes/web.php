@@ -29,6 +29,7 @@ Route::group([
 ], function () {
     Route::post('create', 'ProviderController@store');
     Route::get('/', 'ProviderController@index');
+    Route::get('list', 'ProviderController@index');
 });
 
 Route::group([
