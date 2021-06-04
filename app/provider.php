@@ -38,4 +38,30 @@ class provider extends Model
     {
         return $this->hasMany(Category::class );
     }
+       // FILTRO
+       public function scopeApplyFilters(Builder $query)
+       {
+           $filters = request()->get('filters');
+           if (!empty($filters['category_id'])) {
+               $query->where('provider.category_id', '=' , 1);
+           }
+           $filters = request()->get('filters');
+           if (!empty($filters['category_id'])) {
+               $query->where('provider.category_id', '=' , 2);
+           }
+           $filters = request()->get('filters');
+           if (!empty($filters['category_id'])) {
+               $query->where('provider.category_id', '=' , 3);
+           }
+           $filters = request()->get('filters');
+           if (!empty($filters['category_id'])) {
+               $query->where('provider.category_id', '=' , 4);
+               $filters = request()->get('filters');
+               if (!empty($filters['category_id'])) {
+                   $query->where('provider.category_id', '=' , 5);
+               }
+           }
+
+       }
+   }
 }

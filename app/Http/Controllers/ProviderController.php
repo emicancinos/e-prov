@@ -13,9 +13,26 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::all();
+        $providers = Provider::all()
+        ->applyFilters()
+        ;
         
         return $providers;
+    }
+
+    // LLAMADO AL FILTRO
+    /**
+     * @param Request $request
+     * @param $providerId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function providerIndex()
+    {
+        $request['provider_id'] = $providerId;
+        $providerId = provider::scopeApplyFilters()
+
+        return $this-
+            ->applyFilters()
     }
 
     /**
