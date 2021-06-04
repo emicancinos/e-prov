@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use Illuminate\Database\Eloquent\Builder;
 
 class provider extends Model
 {
@@ -64,4 +65,4 @@ class provider extends Model
 
        }
    }
-}
+
