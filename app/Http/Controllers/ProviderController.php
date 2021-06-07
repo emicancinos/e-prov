@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\provider;
+use App\User;
+use App\City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProviderController extends Controller
 {
@@ -13,7 +16,9 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        //
+        $providers = Provider::all();
+        
+        return $providers;
     }
 
     /**
@@ -52,10 +57,32 @@ class ProviderController extends Controller
      * @param  \App\provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function show(provider $provider)
+    public function show(provider $provider, $id)
     {
-        //
+        $infoProvider = Provider::find($id);
+        return $infoProvider;
     }
+    
+    /**
+     * Display the specified resource by userId
+     *
+     * @param  \App\provider  $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function showbyUserId(provider $provider, $userid)
+    {
+        $users = DB::table('users')
+                ->get();
+
+        $users = DB::table('users')
+            ->join('providers', 'users.id', '=', 'providers.user_id')
+            ->join('cities', 'cities.id', '=', 'providers.city_id')
+            ->get();
+        
+        return $users;
+    }
+    
+    
 
     /**
      * Show the form for editing the specified resource.

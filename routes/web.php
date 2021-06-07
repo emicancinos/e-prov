@@ -28,6 +28,8 @@ Route::group([
     'prefix' => 'provider'
 ], function () {
     Route::post('create', 'ProviderController@store');
+    Route::get('/{userId}', 'ProviderController@showbyUserId');
+    Route::get('/', 'ProviderController@index');
 });
 
 Route::group([
