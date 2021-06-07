@@ -23,6 +23,13 @@ Route::group([
     Route::post('create', 'ProvidersCategoriesController@store');
 });
 
+Route::group([
+    'prefix' => 'specialityCategories'
+], function () {
+    Route::post('create', 'SpecialityCategoriesController@store');
+});
+
+
 
 Route::group([
     'prefix' => 'provider'
@@ -51,6 +58,8 @@ Route::group([
         Route::get('user', 'AuthController@user');
     });
 });
+
+Route::apiResource('/cities', 'CityController' );
 
 
 

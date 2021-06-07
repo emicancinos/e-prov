@@ -41,12 +41,12 @@ class CityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\city  $city
+     * @param  \App\provider  $provider
      * @return \Illuminate\Http\Response
      */
     public function show(city $city)
     {
-        //
+        return $city;
     }
 
     /**
