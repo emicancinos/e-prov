@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SpecialitySeeder::class,
             ]);
-            factory(User::class, 50)->create();
+            factory(User::class, 200)->create();
             factory(client::class, 50)->create();
             factory(provider::class, 100)->create();
             factory(ProvidersCategories::class, 150)->create();

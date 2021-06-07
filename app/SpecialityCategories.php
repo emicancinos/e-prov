@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use App\speciality;
+use App\provider;
 
 class SpecialityCategories extends Model
 {
@@ -21,14 +22,19 @@ class SpecialityCategories extends Model
      * @var array
      */
     protected $fillable = [
-        'speciality_id',
-        'category_id'
+        'provider_id',
+        'category_id',
+        'speciality_id'
     ];
 
-    
+    public function provider()
+    {
+        return $this->belongsTo(provider::class, 'provider_id');
+    }
+
     public function speciality()
     {
-        return $this->belongsTo(Period::class, 'period_id');
+        return $this->belongsTo(speciality::class, 'speciality_id');
     }
     
     public function category()

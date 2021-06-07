@@ -14,12 +14,14 @@ class CreateSpecialitiesCategoryTable extends Migration
     public function up()
     {
         Schema::create('specialities_category', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('speciality_id');
+            $table->increments('id');
+            $table->unsignedInteger('provider_id');
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('speciality_id');
 
-            $table->foreign('speciality_id')->references('id')->on('specialities');
+            $table->foreign('provider_id')->references('id')->on('providers');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('speciality_id')->references('id')->on('specialities');
 
             $table->timestamps();
         });
