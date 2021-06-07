@@ -26,7 +26,8 @@ class provider extends Model
         'enrollment_number',
         'business_name',
         'user_id',
-        'city_id'
+        'city_id',
+        'category_id'
     ];
 
     /**
@@ -64,4 +65,4 @@ class provider extends Model
 
        }
    }
-}
+
