@@ -51,6 +51,14 @@ Route::group([
     });
 });
 
+// Route::group([
+//     'prefix' => 'city'
+// ], function(){
+//     Route::get('/{id:[0-9]+}', 'CityController@show');
+// });
+
+Route::apiResource('/cities', 'CityController' );
+
 
 
 
