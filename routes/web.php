@@ -23,11 +23,7 @@ Route::group([
     Route::post('create', 'ProvidersCategoriesController@store');
 });
 
-Route::group([
-    'prefix' => 'specialityCategories'
-], function () {
-    Route::post('create', 'SpecialityCategoriesController@store');
-});
+
 
 
 
