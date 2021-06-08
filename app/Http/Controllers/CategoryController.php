@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\category;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -41,12 +41,14 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\category  $category
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(category $category)
-    {
-        //
+    public function show($categoryId)
+    {   
+        $category = Category::with('speciality')
+        ->findOrFail($categoryId);
+        return $category;
     }
 
     /**

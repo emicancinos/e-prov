@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\speciality;
 use Illuminate\Http\Request;
+use App\Http\Traits\ApiResponser;
 
 class SpecialityController extends Controller
 {
+    use ApiResponser;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,8 @@ class SpecialityController extends Controller
      */
     public function index()
     {
-        //
+        $speciality = speciality::all();
+        return $speciality;
     }
 
     /**
@@ -44,9 +48,10 @@ class SpecialityController extends Controller
      * @param  \App\speciality  $speciality
      * @return \Illuminate\Http\Response
      */
-    public function show(speciality $speciality)
+    public function show($categoryId)
     {
-        //
+        $speciality= speciality::where('category_id', $categoryId)->first();
+        return $speciality;
     }
 
     /**
@@ -82,4 +87,6 @@ class SpecialityController extends Controller
     {
         //
     }
+
+   
 }
