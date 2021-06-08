@@ -71,15 +71,24 @@ class ProviderController extends Controller
      */
     public function showbyUserId(provider $provider, $userid)
     {
-        $users = DB::table('users')
-                ->get();
+        $user_id = (int)$userid;
 
-        $users = DB::table('users')
-            ->join('providers', 'users.id', '=', 'providers.user_id')
-            ->join('cities', 'cities.id', '=', 'providers.city_id')
+        $provider = DB::table('users')
+                ->join('providers', 'users.id', '=', 'providers.user_id')
+                -> join('cities', 'cities.id', '=', 'providers.city_id')
+                -> select ( 'users.id as user_id',
+                            'users.email as user_email',
+                            'users.user_type as user_user_type',
+                            'providers.id as provider_id',
+                            'providers.email as provider_email',
+                            'providers.cuit_number as provider_cuit_number',
+                            'providers.enrollment_number as provider_enrollment_number',
+                            'providers.business_name as provider_business_name',
+                            'cities.location as city_location')
+            ->where('users.id', $user_id)
             ->get();
-        
-        return $users;
+
+        return $provider;
     }
     
     

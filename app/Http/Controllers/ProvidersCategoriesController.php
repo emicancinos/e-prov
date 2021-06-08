@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ProvidersCategories;
+use App\Category;
+
 use Error;
 use Illuminate\Http\Request;
 
@@ -55,6 +57,31 @@ class ProvidersCategoriesController extends Controller
     public function show(ProvidersCategories $providersCategories)
     {
         //
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  \App\ProvidersCategories  $providersCategories
+     * @param   $providerId
+     * @return \Illuminate\Http\Response
+     */
+    public function showbyProviderId(ProvidersCategories $providersCategories, $providerId)
+    {
+        /** @var  $provider_Id */
+
+        $provider_Id = (int)$providerId;
+        /*
+        $result = ProvidersCategories::where('provider_id', $provider_Id)
+                    -> with('category')
+                    -> get();
+        */
+        $result = ProvidersCategories::where('provider_id', $provider_Id)
+                -> with('category')
+                -> select ('category_id')
+                -> get();
+
+        return $result;
     }
 
     /**
