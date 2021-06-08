@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\providers_speciality;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProvidersSpecialityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,23 +41,21 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function show($categoryId)
-    {   
-        $category = Category::with('speciality')
-        ->findOrFail($categoryId);
-        return $category;
+    public function show(providers_speciality $providers_speciality)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\category  $category
+     * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function edit(category $category)
+    public function edit(providers_speciality $providers_speciality)
     {
         //
     }
@@ -66,10 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\category  $category
+     * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, category $category)
+    public function update(Request $request, providers_speciality $providers_speciality)
     {
         //
     }
@@ -77,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\category  $category
+     * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(category $category)
+    public function destroy(providers_speciality $providers_speciality)
     {
         //
     }

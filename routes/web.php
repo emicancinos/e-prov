@@ -23,11 +23,7 @@ Route::group([
     Route::post('create', 'ProvidersCategoriesController@store');
 });
 
-Route::group([
-    'prefix' => 'specialityCategories'
-], function () {
-    Route::post('create', 'SpecialityCategoriesController@store');
-});
+
 
 
 
@@ -59,6 +55,19 @@ Route::group([
 });
 
 Route::apiResource('/cities', 'CityController' );
+Route::apiResource('/speciality', 'SpecialityController' );
+
+Route::group([
+    'prefix' => 'categories'
+], function () {
+    Route::get('/{categoryId:[0-9]+}', 'CategoryController@show');
+});
+
+// Route::get('category/{categoryId:[0-9]+}', 'CategoryController@show');
+
+Route::apiResource('/category', 'CategoryController' );
+
+
 
 
 
