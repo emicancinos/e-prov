@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\providers_speciality;
+use App\ProvidersSpeciality;
 use Illuminate\Http\Request;
 
 class ProvidersSpecialityController extends Controller
@@ -44,7 +44,7 @@ class ProvidersSpecialityController extends Controller
      * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function show(providers_speciality $providers_speciality)
+    public function show(ProvidersSpeciality $providers_speciality)
     {
         //
     }
@@ -55,7 +55,7 @@ class ProvidersSpecialityController extends Controller
      * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function edit(providers_speciality $providers_speciality)
+    public function edit(ProvidersSpeciality $providers_speciality)
     {
         //
     }
@@ -67,7 +67,7 @@ class ProvidersSpecialityController extends Controller
      * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, providers_speciality $providers_speciality)
+    public function update(Request $request, ProvidersSpeciality $providers_speciality)
     {
         //
     }
@@ -78,7 +78,7 @@ class ProvidersSpecialityController extends Controller
      * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(providers_speciality $providers_speciality)
+    public function destroy(ProvidersSpeciality $providers_speciality)
     {
         //
     }

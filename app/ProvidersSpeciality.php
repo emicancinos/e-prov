@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\provider;
 use App\speciality;
 
-class providers_speciality extends Model
+class ProvidersSpeciality extends Model
 {
     protected $table = 'providers_specialities';
 

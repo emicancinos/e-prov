@@ -9,9 +9,7 @@ use App\User;
 use App\client;
 use App\ProvidersCategories;
 use App\speciality;
-use App\SpecialityCategories;
-
-
+use App\ProvidersSpeciality;
 
 class DatabaseSeeder extends Seeder
 {
@@ -41,7 +39,22 @@ class DatabaseSeeder extends Seeder
                 factory(provider::class)->create(['user_id' => $provider->id]);
             }
 
-            factory(ProvidersCategories::class, 150)->create();
+            $providers = provider::all();
+            foreach($providers as $provider){
+                factory(ProvidersCategories::class)->create(['provider_id' => $provider->id]);
+            }
+
+            $providers_category = ProvidersCategories::all();
+            foreach($providers_category as $provider_category){
+                $speciality_id = speciality::where('category_id', $provider_category->category_id)
+                                            ->select('id')                            
+                                            ->first();
+                
+                factory(ProvidersSpeciality::class)->create(['provider_id' => $provider_category->provider_id, 'speciality_id' => $speciality_id]);
+            
+            }
+            
+            //factory(ProvidersCategories::class, 150)->create();
 
 
             //factory(SpecialityCategories::class, 150)->create();
