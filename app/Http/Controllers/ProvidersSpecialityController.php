@@ -36,7 +36,14 @@ class ProvidersSpecialityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'provider_id'=>'required',
+            'speciality_id' => 'required',
+        ]);
+  
+        $providersSpeciality = ProvidersSpeciality::create($request->all());
+   
+        return $providersSpeciality;
     }
 
     /**
