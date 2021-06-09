@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProvidersSpeciality;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProvidersSpecialityController extends Controller
 {
@@ -40,6 +41,34 @@ class ProvidersSpecialityController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param  \App\providers_speciality  $providers_speciality
+     * @return \Illuminate\Http\Response
+     */
+    public function showbyProviderId(ProvidersSpeciality $providers_speciality, $providerId)
+    {
+        $providerId = (int)$providerId;
+
+        $result = DB::table('providers_specialities')
+                    ->join('specialities', 'specialities.id', 'providers_specialities.speciality_id')
+                    -> select ( 'providers_specialities.speciality_id as speciality_id',
+                                'providers_specialities.provider_id as provider_id',
+                                'specialities.description as specility_description',
+                                'specialities.category_id as category_id')
+                        ->where('providers_specialities.provider_id', $providerId)
+                        ->get();
+        /*
+        //$result = ProvidersSpeciality::finda($providerId);
+        $result = ProvidersSpeciality::where('provider_id', $providerId)
+                -> select (['id', 'provider_id','speciality_id'])
+                -> with ('speciality')
+                -> get();
+        */
+        return $result;
+    }
+
+        /**
+     * Display the specified resource by provider
      *
      * @param  \App\providers_speciality  $providers_speciality
      * @return \Illuminate\Http\Response

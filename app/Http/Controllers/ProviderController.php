@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\provider;
+use App\User;
+use App\City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProviderController extends Controller
 {
@@ -14,7 +17,6 @@ class ProviderController extends Controller
     public function index()
     {
         $providers = Provider::all();
-       
         
         return $providers;
     }
@@ -55,10 +57,41 @@ class ProviderController extends Controller
      * @param  \App\provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function show(provider $provider)
+    public function show(provider $provider, $id)
     {
-        //
+        $infoProvider = Provider::find($id);
+        return $infoProvider;
     }
+    
+    /**
+     * Display the specified resource by userId
+     *
+     * @param  \App\provider  $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function showbyUserId(provider $provider, $userid)
+    {
+        $user_id = (int)$userid;
+
+        $provider = DB::table('users')
+                ->join('providers', 'users.id', '=', 'providers.user_id')
+                -> join('cities', 'cities.id', '=', 'providers.city_id')
+                -> select ( 'users.id as user_id',
+                            'users.email as user_email',
+                            'users.user_type as user_user_type',
+                            'providers.id as provider_id',
+                            'providers.email as provider_email',
+                            'providers.cuit_number as provider_cuit_number',
+                            'providers.enrollment_number as provider_enrollment_number',
+                            'providers.business_name as provider_business_name',
+                            'cities.location as city_location')
+            ->where('users.id', $user_id)
+            ->get();
+
+        return $provider;
+    }
+    
+    
 
     /**
      * Show the form for editing the specified resource.

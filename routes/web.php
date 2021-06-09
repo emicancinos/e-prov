@@ -21,16 +21,21 @@ Route::group([
     'prefix' => 'providersCategories'
 ], function () {
     Route::post('create', 'ProvidersCategoriesController@store');
+    Route::get('/showbyProviderId/{providerId}', 'ProvidersCategoriesController@showbyProviderId');
 });
 
-
-
-
+Route::group([
+    'prefix' => 'providersSpecialities'
+], function () {
+    //Route::post('create', 'ProvidersCategoriesController@store');
+    Route::get('/showbyProviderId/{providerId}', 'ProvidersSpecialityController@showbyProviderId');
+});
 
 Route::group([
     'prefix' => 'provider'
 ], function () {
     Route::post('create', 'ProviderController@store');
+    Route::get('/byUser/{userId}', 'ProviderController@showbyUserId');
     Route::get('/', 'ProviderController@index');
 });
 
