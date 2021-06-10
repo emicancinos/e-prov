@@ -30,6 +30,7 @@ Route::group([
     Route::post('create', 'ProviderController@store');
     Route::get('/', 'ProviderController@index');
     Route::get('list', 'ProviderController@index');
+ Route::get('categories', 'ProviderController@index')
 });
 
 Route::group([

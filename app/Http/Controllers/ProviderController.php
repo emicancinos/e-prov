@@ -12,16 +12,20 @@ class ProviderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {      
+
         $providers = Provider::all()
         //  ->applyFilters()
+        // $request['category_id'] = $categoriesID;
+
+
         ;
         
         return $providers;
-    }
-
-    // LLAMADO AL FILTRO
-  
+        // return $this->Providers::where('category_id', $categoriesID)
+        //     ->applyFilters()
+        //     ->ordered()
+    }  
 
 
     /**
