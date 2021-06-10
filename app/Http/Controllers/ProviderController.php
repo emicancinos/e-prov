@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\provider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProviderController extends Controller
 {
@@ -11,20 +12,21 @@ class ProviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {      
+        $categoryId =  $request->category_id;
 
-        $providers = Provider::all()
-        //  ->applyFilters()
-        // $request['category_id'] = $categoriesID;
-
-
-        ;
-        
+            if($categoryId == null){
+                   $providers = Provider::all();
+            } else{
+                     $providers = DB::table('providers')
+                     ->join('providers_categories', 'providers.id', '=', 'providers_categories.provider_id')
+                     ->where('providers_categories.category_id', '=', $categoryId)
+                     ->select('providers.*')
+                     ->get();
+            }          
         return $providers;
-        // return $this->Providers::where('category_id', $categoriesID)
-        //     ->applyFilters()
-        //     ->ordered()
+       
     }  
 
 
