@@ -26,7 +26,8 @@ class ProviderController extends Controller
               ->where('providers_categories.category_id', '=', $categoryId)
               ->select('providers.*')
               ->get();
-     }          
+     }  
+     return $providers;        
     }
 
     /**
