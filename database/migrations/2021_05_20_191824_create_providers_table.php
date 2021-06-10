@@ -21,9 +21,13 @@ class CreateProvidersTable extends Migration
             $table->string('business_name');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('city_id');
+            // $table->unsignedInteger('category_id');
+
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('city_id')->references('id')->on('cities');
+            // $table->foreign('category_id')->references('id')->on('categories');
+
             $table->timestamps();
         });
     }
