@@ -14,8 +14,8 @@ class CreateProvidersCategoriesidTable extends Migration
     public function up()
     {
         Schema::create('providers_categoriesid', function (Blueprint $table) {
-             $table->unsignedInteger('category_id');
-            
+            $table->unsignedInteger('category_id');
+
             $table->foreign('category_id')->references('id')->on('categories');
 
         });
@@ -28,5 +28,6 @@ class CreateProvidersCategoriesidTable extends Migration
      */
     public function down()
     {
-        $table->dropColumn('category_id');    }
+        $table->dropColumn('category_id');   
+    }
 }

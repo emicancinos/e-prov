@@ -14,11 +14,19 @@ class ProviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)    
     {
-        $providers = Provider::all();
-        
-        return $providers;
+        $categoryId =  $request->category_id;  
+              
+        if($categoryId == null){
+            $providers = Provider::all();
+     } else{
+              $providers = DB::table('providers')
+              ->join('providers_categories', 'providers.id', '=', 'providers_categories.provider_id')
+              ->where('providers_categories.category_id', '=', $categoryId)
+              ->select('providers.*')
+              ->get();
+     }          
     }
 
     /**
