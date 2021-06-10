@@ -28,7 +28,7 @@ class provider extends Model
         'business_name',
         'user_id',
         'city_id',
-        'category_id'
+        // 'category_id'
     ];
 
     /**
@@ -59,10 +59,11 @@ class provider extends Model
            if (!empty($filters['category_id'])) {
                $query->where('provider.category_id', '=' , 4);
                $filters = request()->get('filters');
-               if (!empty($filters['category_id'])) {
-                   $query->where('provider.category_id', '=' , 5);
-               }
-           }
+            }
+           if (!empty($filters['category_id'])) {
+               $query->where('provider.category_id', '=' , 5);
+            }
+           
 
        }
    }
